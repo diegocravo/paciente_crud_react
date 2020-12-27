@@ -26,7 +26,7 @@ const FormularioCadastro = () => {
 
   return (
     <fom autoComplete="off" onSubmit="{manipuladorFormEnvio}">
-      <div className="form-group input-group">
+      <div className="form-group input-group p-1">
         <div className="input-group-prepend">
           <div className="input-group-text">
             <i className="fas fa-user"></i>
@@ -42,8 +42,8 @@ const FormularioCadastro = () => {
         ></input>
       </div>
 
-      <div className="row">
-        <div className="form-group input-group col-md-6">
+      <div className="row p-1">
+        <div className="form-group input-group col-md">
           <div className="input-group-prepend">
             <div className="input-group-text">
               <i className="fas fa-mobile-alt"></i>
@@ -59,7 +59,7 @@ const FormularioCadastro = () => {
           ></input>
         </div>
 
-        <div className="form-group input-group col-md-6">
+        <div className="form-group input-group col-md">
           <div className="input-group-prepend">
             <div className="input-group-text">
               <i className="fas fa-envelope"></i>
@@ -76,7 +76,7 @@ const FormularioCadastro = () => {
         </div>
       </div>
 
-      <div className="form-group input-group col-md-6">
+      <div className="form-group input-group p-1">
         <input
           type="text"
           className="form-control"

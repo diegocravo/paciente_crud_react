@@ -11,10 +11,10 @@ const Cadastro = () => {
       </div>
 
       <div className="row">
-        <div className="col-md-5">
+        <div className="col-md-6">
           <FormularioCadastro />
         </div>
-        <div className="col-md-7">
+        <div className="col-md-6">
           <h2>Lista de pacientes</h2>
         </div>
       </div>
