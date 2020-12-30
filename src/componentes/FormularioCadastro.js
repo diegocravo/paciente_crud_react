@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const FormularioCadastro = () => {
+const FormularioCadastro = (props) => {
   //variáveis de captura de dados
   const camposIniciaisDeValores = {
     nomeCompleto: "",
@@ -9,23 +9,36 @@ const FormularioCadastro = () => {
     endereco: "",
   };
 
-  let { values, setValues } = useState(camposIniciaisDeValores);
+  let [values, setValues] = useState(camposIniciaisDeValores);
 
   const manipuladorInputChange = (e) => {
-    let { nomeCompleto, value } = e.target;
+    let { name, value } = e.target;
 
     setValues({
       ...values,
-      [nomeCompleto]: value,
+      [name]: value,
     });
   };
 
   const manipuladorFormEnvio = (e) => {
     e.preventDefault();
+    props.addEdit(values);
+    resetFields();
+    alert("Cadastro Realizado com Sucesso");
+  };
+
+  const resetFields = () => {
+    setValues({
+      nomeCompleto: "",
+      telefone: "",
+      email: "",
+      endereco: "",
+    });
+    document.getElementById("inicio").focus();
   };
 
   return (
-    <fom autoComplete="off" onSubmit="{manipuladorFormEnvio}">
+    <form autoComplete="off" onSubmit={manipuladorFormEnvio}>
       <div className="form-group input-group p-1">
         <div className="input-group-prepend">
           <div className="input-group-text">
@@ -33,6 +46,7 @@ const FormularioCadastro = () => {
           </div>
         </div>
         <input
+          id="inicio"
           type="text"
           className="form-control"
           placeholder="Nome Completo"
@@ -77,16 +91,23 @@ const FormularioCadastro = () => {
       </div>
 
       <div className="form-group input-group p-1">
-        <input
+        <textarea
           type="text"
           className="form-control"
           placeholder="Endereço"
           name="endereco"
           value={values.endereco}
           onChange={manipuladorInputChange}
-        ></input>
+        ></textarea>
       </div>
-    </fom>
+      <div className="form-group col-md d-flex flex-row-reverse">
+        <input
+          type="submit"
+          value="SALVAR"
+          className="btn btn-primary btn-md btn-block"
+        />
+      </div>
+    </form>
   );
 };
 
